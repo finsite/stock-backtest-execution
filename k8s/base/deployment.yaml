@@ -1,0 +1,22 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stock-backtest-execution
+  labels:
+    app: stock-backtest-execution
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: stock-backtest-execution
+  template:
+    metadata:
+      labels:
+        app: stock-backtest-execution
+    spec:
+      containers:
+      - name: stock-backtest-execution
+        image: stock-backtest-execution:latest
+        ports:
+        - containerPort: 8080
